@@ -6,21 +6,27 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Copy, Settings } from "lucide-react"
 import NFTCard from "@/components/nft-card"
+import { getRandomImage, getRandomImages } from "@/lib/images"
 
-export default function ProfilePage() {
-  // Sample user data
+export default async function ProfilePage() {
+  // Fetch random images for profile
+  const bannerImage = await getRandomImage('abstract art', 1200, 400)
+  const avatarImage = await getRandomImage('profile picture', 200, 200)
+  const nftImages = await getRandomImages(5, 'digital art nft')
+
+  // Sample user data with real images
   const user = {
     address: "0x1a2b3c4d5e6f7g8h9i0j",
     username: "CryptoCollector",
     bio: "Digital art enthusiast and NFT collector. Building the future of digital ownership.",
-    avatar: "/placeholder.svg?height=200&width=200",
-    banner: "/placeholder.svg?height=400&width=1200",
+    avatar: avatarImage,
+    banner: bannerImage,
     joined: "October 2022",
     followers: 128,
     following: 56,
   }
 
-  // Sample NFT data
+  // Sample NFT data with real images
   const ownedNFTs = [
     {
       id: "1",
@@ -28,7 +34,7 @@ export default function ProfilePage() {
       creator: "0x1a2b...3c4d",
       price: 0.45,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[0],
       likes: 24,
       isHot: true,
     },
@@ -38,7 +44,7 @@ export default function ProfilePage() {
       creator: "0x5e6f...7g8h",
       price: 0.32,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[1],
       likes: 18,
     },
     {
@@ -47,7 +53,7 @@ export default function ProfilePage() {
       creator: "0x9i0j...1k2l",
       price: 0.67,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[2],
       likes: 36,
       isHot: true,
     },
@@ -60,7 +66,7 @@ export default function ProfilePage() {
       creator: user.address,
       price: 0.28,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[3],
       likes: 12,
     },
     {
@@ -69,7 +75,7 @@ export default function ProfilePage() {
       creator: user.address,
       price: 0.51,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[4],
       likes: 29,
     },
   ]

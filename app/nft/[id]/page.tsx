@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Clock, Eye, Heart, History, Share2, Tag, Zap } from "lucide-react"
+import { getRandomImage } from "@/lib/images"
 
 interface NFTPageProps {
   params: {
@@ -12,7 +13,10 @@ interface NFTPageProps {
   }
 }
 
-export default function NFTPage({ params }: NFTPageProps) {
+export default async function NFTPage({ params }: NFTPageProps) {
+  // Fetch random image for NFT
+  const nftImage = await getRandomImage('digital art nft', 600, 600)
+
   // In a real app, you would fetch this data based on the ID
   const nft = {
     id: params.id,
@@ -23,7 +27,7 @@ export default function NFTPage({ params }: NFTPageProps) {
     owner: "0x5e6f...7g8h",
     price: 0.45,
     currency: "ETH",
-    image: "/placeholder.svg?height=600&width=600",
+    image: nftImage,
     likes: 24,
     views: 142,
     createdAt: "2023-10-15",

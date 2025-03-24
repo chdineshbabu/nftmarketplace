@@ -5,9 +5,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { FlameIcon as Fire, Plus, Sparkles, TrendingUpIcon as Trending } from "lucide-react"
 import NFTCard from "@/components/nft-card"
 import { SearchBar } from "@/components/search-bar"
+import { getRandomImages } from "@/lib/images"
 
-export default function Home() {
-  // Sample NFT data
+export default async function Home() {
+  // Fetch random images for NFTs
+  const nftImages = await getRandomImages(6, 'digital art nft')
+
+  // Sample NFT data with real images
   const nfts = [
     {
       id: "1",
@@ -15,7 +19,7 @@ export default function Home() {
       creator: "0x1a2b...3c4d",
       price: 0.45,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[0],
       likes: 24,
       isHot: true,
     },
@@ -25,7 +29,7 @@ export default function Home() {
       creator: "0x5e6f...7g8h",
       price: 0.32,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[1],
       likes: 18,
     },
     {
@@ -34,7 +38,7 @@ export default function Home() {
       creator: "0x9i0j...1k2l",
       price: 0.67,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[2],
       likes: 36,
       isHot: true,
     },
@@ -44,7 +48,7 @@ export default function Home() {
       creator: "0x3m4n...5o6p",
       price: 0.28,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[3],
       likes: 12,
     },
     {
@@ -53,7 +57,7 @@ export default function Home() {
       creator: "0x7q8r...9s0t",
       price: 0.51,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[4],
       likes: 29,
     },
     {
@@ -62,7 +66,7 @@ export default function Home() {
       creator: "0x1u2v...3w4x",
       price: 0.38,
       currency: "ETH",
-      image: "/placeholder.svg?height=400&width=400",
+      image: nftImages[5],
       likes: 21,
     },
   ]
