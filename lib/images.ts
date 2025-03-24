@@ -3,7 +3,7 @@ import { Random } from 'unsplash-js/dist/methods/photos/types';
 
 // Initialize the Unsplash API client
 const unsplash = createApi({
-  accessKey: process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY || '',
+  accessKey: process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY || '9jg5dRRE5i-OADaWOE9q-CHpkRm9RBZS_z8YRnGiU_Q',
 });
 
 // Function to get a random image URL
